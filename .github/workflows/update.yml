@@ -32,3 +32,25 @@ jobs:
           HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: brew bump --formula --tap=SeWieland/transiever --open-pr --no-fork
 
+  auto-merge-formulas:
+    name: Enable auto-merge for formula updates
+    needs: update
+    if: always()
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Enable auto-merge for formula update PRs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr list --repo "$GITHUB_REPOSITORY" --state open --base main --json author,url --jq '.[] | select(.author.login == "github-actions[bot]") | .url' |
+            while read -r pr_url; do
+              [ -z "$pr_url" ] && continue
+              files="$(gh pr diff --repo "$GITHUB_REPOSITORY" --name-only "$pr_url")"
+              if [ -z "$files" ] || printf '%s\n' "$files" | grep -qvE '^Formula/[^/]+\.rb$'; then
+                echo "Skipping $pr_url: it changes files outside Formula/*.rb."
+                continue
+              fi
+              gh pr merge --repo "$GITHUB_REPOSITORY" --auto --squash "$pr_url"
+            done
+
