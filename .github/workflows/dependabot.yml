@@ -21,8 +21,21 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Check for workflow changes
+        id: file_check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          if gh pr diff --name-only "$PR_URL" | grep -q '^\.github/workflows/'; then
+            echo 'auto_merge=false' >> "$GITHUB_OUTPUT"
+            echo 'Workflow changes require manual merge.'
+          else
+            echo 'auto_merge=true' >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Approve and enable auto-merge
-        if: steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor'
+        if: (steps.metadata.outputs.update-type == 'version-update:semver-patch' || steps.metadata.outputs.update-type == 'version-update:semver-minor') && steps.file_check.outputs.auto_merge == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
