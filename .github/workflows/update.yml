@@ -30,7 +30,16 @@ jobs:
       - name: Open update pull requests
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: brew bump --formula --tap=SeWieland/transiever --open-pr --no-fork
+        run: |
+          for attempt in 1 2 3; do
+            if brew bump --formula --tap=SeWieland/transiever --open-pr --no-fork; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              sleep $((attempt * 15))
+            fi
+          done
+          exit 1
 
   auto-merge-formulas:
     name: Enable auto-merge for formula updates
