@@ -1,9 +1,9 @@
 class Msieve < Formula
   desc "Command-line client for direct ManageSieve protocol operations"
   homepage "https://github.com/SeWieland/Transiever.ManageSieve"
-  url "https://github.com/SeWieland/Transiever.ManageSieve/releases/download/v1.0.1/msieve-v1.0.1-linux-x64.tar.gz"
-  version "1.0.1"
-  sha256 "47fe27ef079635225f645b20ae0608afba530ccfed7cf3c9b8787fcd8ba82d13"
+  url "https://github.com/SeWieland/Transiever.ManageSieve/releases/download/v1.1.1/msieve-v1.1.1-linux-x64.tar.gz"
+  version "1.1.1"
+  sha256 "f8e5ad3c345f2080f6d114483f7e25fafc673e845357a88b4c900f52033190e4"
   license "MIT"
 
   livecheck do

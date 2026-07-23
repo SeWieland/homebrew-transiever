@@ -34,3 +34,38 @@ jobs:
       - run: brew test-bot --only-formulae
         if: github.event_name == 'pull_request'
 
+  auto-merge-formula-update:
+    name: Enable auto-merge for formula update
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      startsWith(github.head_ref, 'update-')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Verify and enable auto-merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          body="$(gh pr view "$PR_URL" --json body --jq .body)"
+          if [ "$body" != "Created by https://github.com/mislav/bump-homebrew-formula-action" ]; then
+            echo "Skipping $PR_URL: it was not created by the formula updater."
+            exit 0
+          fi
+
+          files="$(gh pr diff "$PR_URL" --name-only)"
+          case "$files" in
+            Formula/msieve.rb|Formula/srtx.rb|Formula/tbrx.rb) ;;
+            *)
+              echo "Skipping $PR_URL: it is not a single known formula update."
+              exit 0
+              ;;
+          esac
+
+          gh pr merge --auto --squash --subject "$PR_TITLE" "$PR_URL"
+

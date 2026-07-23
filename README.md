@@ -23,6 +23,7 @@ The formulas install self-contained release assets, so a separate .NET runtime i
 
 ## Updates
 
-Automation checks stable upstream GitHub releases every six hours and opens formula update pull requests.
+Each upstream release updates its corresponding formula after the Linux asset has been published.
+Formula update pull requests are validated by `brew test-bot` and merged automatically after the required checks pass.
 Beta prereleases are intentionally excluded except for the unstable `tbrx` beta.
 `tbrx` temporarily tracks prereleases under its permanent name and actively requests [redacted tester reports](https://github.com/SeWieland/Transiever.ThunderbirdResiever/issues).
