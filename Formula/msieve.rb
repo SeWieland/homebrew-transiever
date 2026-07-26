@@ -1,5 +1,5 @@
 class Msieve < Formula
-  desc "Command-line client for direct ManageSieve protocol operations"
+  desc "ManageSieve client to list, download, upload, and activate Sieve scripts"
   homepage "https://github.com/SeWieland/Transiever.ManageSieve"
   url "https://github.com/SeWieland/Transiever.ManageSieve/releases/download/v1.1.1/msieve-v1.1.1-linux-x64.tar.gz"
   version "1.1.1"

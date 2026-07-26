@@ -1,5 +1,5 @@
 class Tbrx < Formula
-  desc "Export Thunderbird filters and synchronize them to server-side Sieve"
+  desc "Experimental Thunderbird filter export for Sieve generation and server sync"
   homepage "https://github.com/SeWieland/Transiever.ThunderbirdResiever"
   url "https://github.com/SeWieland/Transiever.ThunderbirdResiever/releases/download/v1.0.0-beta.1/tbrx-v1.0.0-beta.1-linux-x64.tar.gz"
   sha256 "58dd997494f25d68165935154bc4c13d16b6f0b6dc55e994751f4ff18665c11c"

@@ -1,5 +1,5 @@
 class Srtx < Formula
-  desc "Inspect, optimize, generate, and deploy provider-neutral Sieve rules"
+  desc "Create Sieve scripts from rule files; inspect, optimize, preview, and deploy"
   homepage "https://github.com/SeWieland/Transiever.SieveRuler"
   url "https://github.com/SeWieland/Transiever.SieveRuler/releases/download/v1.1.0/srtx-v1.1.0-linux-x64.tar.gz"
   version "1.1.0"

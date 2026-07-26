@@ -14,9 +14,9 @@ brew install SeWieland/transiever/tbrx
 
 | Formula  | CLI                                                             | Platform  |
 | -------- | --------------------------------------------------------------- | --------- |
-| `msieve` | Direct ManageSieve protocol operations                          | Linux x64 |
-| `srtx`   | Rule inspection, optimization, Sieve generation, and deployment | Linux x64 |
-| `tbrx`   | Experimental Thunderbird filter export and synchronization      | Linux x64 |
+| `msieve` | ManageSieve client to list, download, upload, and activate Sieve scripts | Linux x64 |
+| `srtx`   | Create Sieve scripts from rule files; inspect, optimize, preview, and deploy | Linux x64 |
+| `tbrx`   | Experimental Thunderbird filter export for Sieve generation and server sync | Linux x64 |
 
 The formulas install self-contained release assets, so a separate .NET runtime is not required.
 `olrx` is not available because it requires Windows and classic Outlook.
