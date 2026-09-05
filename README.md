@@ -27,3 +27,11 @@ Each upstream release updates its corresponding formula after the Linux asset ha
 Formula update pull requests are validated by `brew test-bot` and merged automatically after the required checks pass.
 Beta prereleases are intentionally excluded except for the unstable `tbrx` beta.
 `tbrx` temporarily tracks prereleases under its permanent name and actively requests [redacted tester reports](https://github.com/SeWieland/Transiever.ThunderbirdResiever/issues).
+
+## AI usage
+
+Transiever is a personal hobby project created to solve practical problems I have encountered myself.
+
+AI is used heavily throughout its development. It supports research, design exploration, implementation, debugging, and documentation.
+
+The project is developed using test-driven development and reviewed by a human, me. Its direction, behavior, and quality remain guided by the problems it is intended to solve.
