@@ -1,8 +1,8 @@
 class Msieve < Formula
   desc "ManageSieve client to list, download, upload, and activate Sieve scripts"
   homepage "https://github.com/SeWieland/Transiever.ManageSieve"
-  url "https://github.com/SeWieland/Transiever.ManageSieve/releases/download/v1.3.0/msieve-v1.3.0-linux-x64.tar.gz"
-  sha256 "6996fd6c191c3f7f5fc496202a9ec1508a8eaeacd1e2beb1a1619ccf63cd9be6"
+  url "https://github.com/SeWieland/Transiever.ManageSieve/releases/download/v1.4.0/msieve-v1.4.0-linux-x64.tar.gz"
+  sha256 "741e8b1b27e6f71a4d3b6390575c7cebab1fc38c390d7cab14d011b1599bab8d"
   license "MIT"
 
   livecheck do
