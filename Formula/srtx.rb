@@ -1,8 +1,8 @@
 class Srtx < Formula
   desc "Create Sieve scripts from rule files; inspect, optimize, preview, and deploy"
   homepage "https://github.com/SeWieland/Transiever.SieveRuler"
-  url "https://github.com/SeWieland/Transiever.SieveRuler/releases/download/v1.2.1/srtx-v1.2.1-linux-x64.tar.gz"
-  sha256 "8e002881baf4486a0c193afeafca72eb106de7b2ec935267d009add4c8d78885"
+  url "https://github.com/SeWieland/Transiever.SieveRuler/releases/download/v1.2.2/srtx-v1.2.2-linux-x64.tar.gz"
+  sha256 "e32fae3cf34097d1c405868293783f23b75892a6ea7751968a9551c2d28345d7"
   license "MIT"
 
   livecheck do
